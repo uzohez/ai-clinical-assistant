@@ -3,3 +3,5 @@ __pycache__/
 .env
 clinic.db
 venv/
+OPENAI_KEY.txt
+.env
