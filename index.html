@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Clinical Assistant</title>
+</head>
+<body>
+    <h2>AI Clinical Assistant</h2>
+
+    <input id="input" placeholder="Describe your symptoms..." />
+    <button onclick="send()">Send</button>
+
+    <pre id="chat"></pre>
+
+    <script>
+        const session_id = "user1";
+
+        async function send() {
+            const message = document.getElementById("input").value;
+
+            const res = await fetch("http://127.0.0.1:8000/chat", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    session_id: session_id,
+                    message: message
+                })
+            });
+
+            const data = await res.json();
+
+            document.getElementById("chat").innerText += 
+                "\nYOU: " + message + 
+                "\nAI: " + data.response + "\n";
+        }
+    </script>
+</body>
+</html>

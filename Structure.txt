@@ -1,0 +1,8 @@
+ai-clinical-assistant/
+│
+├── main.py
+├── triage_engine.py
+├── database.py   ✅ NEW
+├── models.py     ✅ NEW
+├── risk_model.py
+├── summary_generator.py
